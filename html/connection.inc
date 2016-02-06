@@ -3,7 +3,7 @@
 function DBconnect($DBNAME) {
 	$DBCONN = pg_connect("host=2001:2e8:65f:0:2:1:0:5 port=5432 dbname=$DBNAME user=zaiko password=zaiko#pass");
 	if ($DBCONN == "false") {
-		print("データベースに接続できませんでした。");
+		print("データベース" . $DBNAME . "に接続できませんでした。");
 		exit ;
 	}
 	return $DBCONN ;
