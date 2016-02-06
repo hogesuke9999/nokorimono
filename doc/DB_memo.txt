@@ -1,0 +1,37 @@
+接続用ユーザの作成
+$ createuser --no-createdb --no-inherit --pwprompt --no-createrole --no-superuser zaiko
+Enter password for new role: (zaiko#pass)
+Enter it again: (zaiko#pass)
+
+データベースの作成
+$ createdb --encoding=utf8 --template=template0 --owner=zaiko zaiko
+
+データベースへの接続
+$ psql --username=zaiko --host=2001:2e8:65f:0:2:1:0:5 -W zaiko
+Password for user zaiko: (zaiko#pass)
+
+
+create table ZAIKO (
+ZAIKO_No                serial  PRIMARY KEY,
+BuyDate                 date    NOT NULL,
+LimitDate               date    NOT NULL,
+ItemName                text    NOT NULL,
+ItemCount               real    NOT NULL,
+ItemUnitNameCode        int     NOT NULL
+)
+
+create table ItemUnitName (
+ItemUnitNameCode        serial  PRIMARY KEY,
+ItemUnitName            text    NOT NULL
+)
+
+
+zaiko=> GRANT ALL PRIVILEGES ON ZAIKO TO zaiko;
+GRANT
+zaiko=> GRANT ALL PRIVILEGES ON ZAIKO_ZAIKO_No_seq TO zaiko;
+GRANT
+zaiko=> GRANT ALL PRIVILEGES ON ItemUnitName TO zaiko;
+GRANT
+zaiko=> GRANT ALL PRIVILEGES ON ItemUnitName_ItemUnitNameCode_seq TO zaiko;
+GRANT
+zaiko=>
