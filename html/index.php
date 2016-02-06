@@ -12,7 +12,7 @@
 require("connection.inc");
 require("modulev2.inc");
 
-$DBCONN = DBconnect("ZAIKO");
+$DBCONN = DBconnect("zaiko");
 
 // 変数の初期設定
 //  前のページから引き渡されたものについては、その値を使うが、
